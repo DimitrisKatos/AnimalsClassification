@@ -24,11 +24,13 @@ def setup_logging(log_file="process.log"):
     )
 
 def unzip_data(file_path, save_path, unzip_path):
-    """ Unzip a file into the specified directory.
+    """ Unzip a file into the specified directory. Fisrt Check if the file exists
+    end if it doesn't exists unzip it.
        
-        Args:
+    Args:
          - file_path (str): The file that will be unzipped
          - save_path (str): The path that unzipped folder will be saved.
+
     """
     if  os.path.exists(save_path):
         print(f"[INFO] The file is already uznipped.")
@@ -38,13 +40,6 @@ def unzip_data(file_path, save_path, unzip_path):
         zip_ref = zipfile.ZipFile(file_path, 'r')
         zip_ref.extractall(unzip_path)
         zip_ref.close()
-    '''try:
-        with zipfile.ZipFile(file_path, 'r') as zip_ref:
-            zip_ref.extractall(save_path)
-        logging.info(f"Unzipped '{file_path}' to '{save_path}'.")
-    except Exception as e:
-        logging.error(f"Error unzipping file {file_path}: {e}")
-        raise'''
 
 def walk_through_dir(dir_path):
     """

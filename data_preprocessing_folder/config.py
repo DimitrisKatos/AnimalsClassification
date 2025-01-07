@@ -12,7 +12,7 @@
 """
 import os
 
-BASE_DIR = os.path.abspath("C:/Users/dimit/OneDrive/Desktop/my_work_git/animals_classification/data_preprocessing_folder")
+BASE_DIR = os.path.abspath("C:/Users/dimit/OneDrive/Desktop/my_work_git/AnimalsClassification/AnimalsClassification/data_preprocessing_folder")
 DATASET_URL = "https://www.kaggle.com/datasets/alessiocorrado99/animals10"
 RAW_DATA_DIR = os.path.join(BASE_DIR, "raw-img")
 TRANSLATIONS = {
@@ -37,6 +37,7 @@ DATASET_SIZES = {
     'transformed_dataset_25_images': 25,
     'transformed_dataset_50_images': 50,
     'transformed_dataset_100_images': 100,
+    'trasnformed_dataset_500_images': 500
     
 }
 

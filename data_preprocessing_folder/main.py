@@ -8,23 +8,16 @@ def main():
     # Step 1: Set up logging
     setup_logging()
 
-    delete_directory(directory_path= BASE_DIR +'/transformed_dataset_50_images')
-    delete_directory(directory_path= BASE_DIR +'/transformed_dataset_100_images')
-    delete_directory(directory_path= BASE_DIR +'/transformed_dataset_25_images')
-    delete_directory(directory_path= BASE_DIR + '/tranformed_dataset_all_images')
-    delete_directory(directory_path= BASE_DIR + '/valid')
-    delete_directory(directory_path= BASE_DIR + '/test')
-
     # Step 2: Unzip dataset
     unzip_data(os.path.join(BASE_DIR, "animals10.zip"), RAW_DATA_DIR, unzip_path = BASE_DIR)
 
-    # Step 2: Rename folders
+    # Step 2: Rename folders, translate the folders to English
     rename_folders(RAW_DATA_DIR, TRANSLATIONS)
 
     # Step 3: Create the same test and validation sets.
     # We create this test before the training datasets, because we want this sets to contain
     # Images that the model have never seen before.
-    create_set(RAW_DATA_DIR, os.path.join(BASE_DIR, 'test'), classes= CLASSES, ) ### PROBLEM
+    create_set(RAW_DATA_DIR, os.path.join(BASE_DIR, 'test'), classes= CLASSES, ) 
     create_set(RAW_DATA_DIR, os.path.join(BASE_DIR, 'valid'), classes = CLASSES, )
 
     # Step 4: Create big training set that contains all the images.
